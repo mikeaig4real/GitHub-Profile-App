@@ -59,6 +59,7 @@ class UI {
             data[4].forEach(ele => {
                 const rep = document.createElement('a');
                 rep.innerText = ele[0];
+                rep.target = "_blank";
                 rep.href = `https://github.com/${data[5]}/${ele[0]}`;
                 reposDom.appendChild(rep);
             });
