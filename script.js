@@ -32,7 +32,7 @@ class Profile {
             const fetchRepos = await fetch(`https://api.github.com/users/${user}/repos`);
             const jsonRepos = await fetchRepos.json();
             const data2 = jsonRepos.slice(0, 10).map(repo => [repo.name, repo.url]);
-            UI.loadProfile([...data1, [...data2]]);
+            UI.loadProfile([...data1, [...data2],user]);
             UI.showTap();
             return true;
         } catch (error) {
@@ -59,7 +59,7 @@ class UI {
             data[4].forEach(ele => {
                 const rep = document.createElement('a');
                 rep.innerText = ele[0];
-                rep.href = ele[1];
+                rep.href = `https://github.com/${data[5]}/${ele[0]}`;
                 reposDom.appendChild(rep);
             });
         } else {
